@@ -1,9 +1,10 @@
 // Base
 // Base element styles
+@use '../abstracts/mixins' as mix;
 
 body {
   background-color: #fafbfc;
-  @include transition(all);
+  @include mix.transition(all);
   margin: 0;
   overflow: hidden;
   height: 100vh;
@@ -35,15 +36,15 @@ main {
 
 // Elevation
 .elevation-1 {
-  @include elevation(1);
+  @include mix.elevation(1);
 }
 
 .elevation-2 {
-  @include elevation(2);
+  @include mix.elevation(2);
 }
 
 .elevation-3 {
-  @include elevation(3);
+  @include mix.elevation(3);
 }
 
 // Additional utility classes for dynamic theming

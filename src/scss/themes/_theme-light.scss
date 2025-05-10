@@ -1,26 +1,27 @@
 // Light Theme
 // Default theme styles
+@use 'theme-variables' as vars;
 
 .theme-light {
   // Primary colors
-  --md-primary: #{$light-primary};
-  --md-primary-container: #{$light-primary-container};
-  --md-on-primary: #{$light-on-primary};
-  --md-on-primary-container: #{$light-on-primary-container};
-  
+  --md-primary: #{vars.$light-primary};
+  --md-primary-container: #{vars.$light-primary-container};
+  --md-on-primary: #{vars.$light-on-primary};
+  --md-on-primary-container: #{vars.$light-on-primary-container};
+
   // Secondary colors
-  --md-secondary: #{$light-secondary};
-  --md-secondary-container: #{$light-secondary-container};
-  --md-on-secondary: #{$light-on-secondary};
-  --md-on-secondary-container: #{$light-on-secondary-container};
-  
+  --md-secondary: #{vars.$light-secondary};
+  --md-secondary-container: #{vars.$light-secondary-container};
+  --md-on-secondary: #{vars.$light-on-secondary};
+  --md-on-secondary-container: #{vars.$light-on-secondary-container};
+
   // Surface colors
-  --md-surface: #{$surface};
-  --md-surface-variant: #{$surface-variant};
-  --md-on-surface: #{$on-surface};
-  --md-on-surface-variant: #{$on-surface-variant};
-  
+  --md-surface: #{vars.$surface};
+  --md-surface-variant: #{vars.$surface-variant};
+  --md-on-surface: #{vars.$on-surface};
+  --md-on-surface-variant: #{vars.$on-surface-variant};
+
   // Other colors
-  --md-outline: #{$outline};
-  --md-error: #{$error};
+  --md-outline: #{vars.$outline};
+  --md-error: #{vars.$error};
 }

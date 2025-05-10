@@ -1,10 +1,12 @@
 // Typography Utilities
 // Utility classes for typography
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 // Font weights
-.font-regular { font-weight: $font-weight-regular; }
-.font-medium { font-weight: $font-weight-medium; }
-.font-bold { font-weight: $font-weight-bold; }
+.font-regular { font-weight: vars.$font-weight-regular; }
+.font-medium { font-weight: vars.$font-weight-medium; }
+.font-bold { font-weight: vars.$font-weight-bold; }
 
 // Text alignment
 .text-left { text-align: left; }
@@ -24,7 +26,7 @@
 
 // Text overflow
 .truncate {
-  @include truncate;
+  @include mix.truncate;
 }
 
 // Font sizes
@@ -39,13 +41,13 @@
 
 // Line heights
 .leading-none { line-height: 1; }
-.leading-tight { line-height: $line-height-tight; }
-.leading-normal { line-height: $line-height-normal; }
+.leading-tight { line-height: vars.$line-height-tight; }
+.leading-normal { line-height: vars.$line-height-normal; }
 .leading-loose { line-height: 2; }
 
 // Font families
-.font-sans { font-family: $font-family-base; }
-.font-mono { font-family: $font-family-code; }
+.font-sans { font-family: vars.$font-family-base; }
+.font-mono { font-family: vars.$font-family-code; }
 
 // Text opacity
 .text-opacity-75 { opacity: 0.75; }

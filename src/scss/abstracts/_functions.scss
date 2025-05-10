@@ -1,23 +1,27 @@
 // Functions
 // This file contains all application-wide SCSS functions
 
+// Import Sass modules
+@use "sass:color";
+@use "sass:math";
+
 // Convert pixels to rem
 @function rem($pixels, $context: 16) {
-  @return ($pixels / $context) * 1rem;
+  @return math.div($pixels, $context) * 1rem;
 }
 
 // Lighten color by percentage
 @function tint($color, $percentage) {
-  @return mix(white, $color, $percentage);
+  @return color.mix(white, $color, $percentage);
 }
 
 // Darken color by percentage
 @function shade($color, $percentage) {
-  @return mix(black, $color, $percentage);
+  @return color.mix(black, $color, $percentage);
 }
 
 // Calculate contrast color (black or white) based on background
 @function contrast-color($color) {
-  $luminance: (0.299 * red($color) + 0.587 * green($color) + 0.114 * blue($color)) / 255;
+  $luminance: (0.299 * color.red($color) + 0.587 * color.green($color) + 0.114 * color.blue($color)) / 255;
   @return if($luminance > 0.5, #000000, #ffffff);
 }

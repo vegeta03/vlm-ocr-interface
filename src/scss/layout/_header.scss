@@ -1,5 +1,7 @@
 // Header
 // Styles for the application header
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .theme-header {
   background-color: var(--md-surface);
@@ -8,28 +10,28 @@
 
   h1 {
     font-size: 1.25rem; // text-xl
-    font-weight: $font-weight-medium;
+    font-weight: vars.$font-weight-medium;
   }
 
   .theme-selector {
-    @include flex-center;
-    gap: $spacing-sm;
+    @include mix.flex-center;
+    gap: vars.$spacing-sm;
 
     span {
-      font-size: $font-size-body-small;
+      font-size: vars.$font-size-body-small;
     }
 
     .color-options {
       display: flex;
-      gap: $spacing-md;
+      gap: vars.$spacing-md;
     }
   }
 
-  @include respond-to(md) {
-    padding: $spacing-md;
+  @include mix.respond-to(md) {
+    padding: vars.$spacing-md;
   }
 
-  @include respond-below(md) {
-    padding: $spacing-sm;
+  @include mix.respond-below(md) {
+    padding: vars.$spacing-sm;
   }
 }

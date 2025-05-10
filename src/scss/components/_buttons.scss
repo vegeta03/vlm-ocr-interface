@@ -1,8 +1,10 @@
 // Buttons
 // Styles for buttons
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .btn-primary {
-  @include button-base;
+  @include mix.button-base;
   background-color: var(--md-primary);
   color: var(--md-on-primary);
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -23,12 +25,12 @@
   svg {
     width: 1.25rem;
     height: 1.25rem;
-    margin-right: $spacing-xs;
+    margin-right: vars.$spacing-xs;
   }
 }
 
 .btn-secondary {
-  @include button-base;
+  @include mix.button-base;
   background-color: var(--md-secondary-container);
   color: var(--md-on-secondary-container);
 
@@ -44,11 +46,11 @@
 }
 
 .btn-text {
-  @include button-base;
+  @include mix.button-base;
   background-color: transparent;
   color: var(--md-primary);
   box-shadow: none;
-  padding: $spacing-sm $spacing-md;
+  padding: vars.$spacing-sm vars.$spacing-md;
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);
@@ -56,15 +58,15 @@
 }
 
 .btn-icon {
-  @include flex-center;
+  @include mix.flex-center;
   background-color: transparent;
   border: none;
-  border-radius: $border-radius-circle;
+  border-radius: vars.$border-radius-circle;
   width: 2rem;
   height: 2rem;
   cursor: pointer;
   color: var(--md-on-surface-variant);
-  @include transition(background-color, color);
+  @include mix.transition(background-color, color);
 
   &:hover {
     background-color: rgba(0, 0, 0, 0.05);

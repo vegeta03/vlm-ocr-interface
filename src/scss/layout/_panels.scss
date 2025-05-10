@@ -1,14 +1,16 @@
 // Panels
 // Styles for the left and right panels
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 // Panel adjustments for full-screen
 .left-panel, .right-panel {
   height: 100%;
   overflow-y: auto;
-  padding: $spacing-md;
-  @include flex-column;
-  
-  @include respond-to(md) {
+  padding: vars.$spacing-md;
+  @include mix.flex-column;
+
+  @include mix.respond-to(md) {
     width: 50%;
   }
 }
@@ -16,14 +18,14 @@
 .left-panel {
   .preview-section {
     flex: 1;
-    @include flex-column;
+    @include mix.flex-column;
   }
-  
+
   .preview-section, .file-upload-section {
     height: auto;
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
-  
+
   // Adjust for bottom padding
   .preview-section:last-child {
     margin-bottom: 0;
@@ -31,21 +33,21 @@
 }
 
 .right-panel {
-  @include flex-column;
-  
-  @include respond-to(md) {
+  @include mix.flex-column;
+
+  @include mix.respond-to(md) {
     margin-left: 1.5rem; // ml-6
   }
-  
-  @include respond-below(md) {
-    margin-top: $spacing-md;
+
+  @include mix.respond-below(md) {
+    margin-top: vars.$spacing-md;
   }
 }
 
 #ocrOutput {
   flex: 1;
-  @include flex-column;
-  
+  @include mix.flex-column;
+
   textarea {
     flex: 1;
     min-height: 200px;

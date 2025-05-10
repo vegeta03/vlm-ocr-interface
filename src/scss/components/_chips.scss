@@ -1,16 +1,18 @@
 // Chips
 // Styles for chips and selectable chips
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .chip {
   display: inline-flex;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  border-radius: $border-radius-pill;
-  font-size: $font-size-body-small;
+  border-radius: vars.$border-radius-pill;
+  font-size: vars.$font-size-body-small;
   background-color: rgba(0, 0, 0, 0.08);
   color: var(--md-on-surface-variant);
-  font-weight: $font-weight-medium;
-  @include transition(background-color, color);
+  font-weight: vars.$font-weight-medium;
+  @include mix.transition(background-color, color);
 }
 
 .chip-selectable {

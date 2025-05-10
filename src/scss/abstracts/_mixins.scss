@@ -1,28 +1,33 @@
 // Mixins
 // This file contains all application-wide SCSS mixins
 
+// Import Sass modules
+@use "sass:list";
+@use "sass:math";
+@use "variables" as vars;
+
 // Media query mixins
 @mixin respond-to($breakpoint) {
   @if $breakpoint == sm {
-    @media (min-width: $breakpoint-sm) { @content; }
+    @media (min-width: vars.$breakpoint-sm) { @content; }
   } @else if $breakpoint == md {
-    @media (min-width: $breakpoint-md) { @content; }
+    @media (min-width: vars.$breakpoint-md) { @content; }
   } @else if $breakpoint == lg {
-    @media (min-width: $breakpoint-lg) { @content; }
+    @media (min-width: vars.$breakpoint-lg) { @content; }
   } @else if $breakpoint == xl {
-    @media (min-width: $breakpoint-xl) { @content; }
+    @media (min-width: vars.$breakpoint-xl) { @content; }
   }
 }
 
 @mixin respond-below($breakpoint) {
   @if $breakpoint == sm {
-    @media (max-width: $breakpoint-sm - 1) { @content; }
+    @media (max-width: vars.$breakpoint-sm - 1) { @content; }
   } @else if $breakpoint == md {
-    @media (max-width: $breakpoint-md - 1) { @content; }
+    @media (max-width: vars.$breakpoint-md - 1) { @content; }
   } @else if $breakpoint == lg {
-    @media (max-width: $breakpoint-lg - 1) { @content; }
+    @media (max-width: vars.$breakpoint-lg - 1) { @content; }
   } @else if $breakpoint == xl {
-    @media (max-width: $breakpoint-xl - 1) { @content; }
+    @media (max-width: vars.$breakpoint-xl - 1) { @content; }
   }
 }
 
@@ -47,59 +52,59 @@
 // Elevation mixins
 @mixin elevation($level) {
   @if $level == 1 {
-    box-shadow: $elevation-1;
+    box-shadow: vars.$elevation-1;
   } @else if $level == 2 {
-    box-shadow: $elevation-2;
+    box-shadow: vars.$elevation-2;
   } @else if $level == 3 {
-    box-shadow: $elevation-3;
+    box-shadow: vars.$elevation-3;
   }
 }
 
 // Typography mixins
 @mixin title-large {
-  font-size: $font-size-title-large;
-  font-weight: $font-weight-medium;
-  line-height: $line-height-tight;
+  font-size: vars.$font-size-title-large;
+  font-weight: vars.$font-weight-medium;
+  line-height: vars.$line-height-tight;
 }
 
 @mixin title-medium {
-  font-size: $font-size-title-medium;
-  font-weight: $font-weight-medium;
-  line-height: $line-height-tight;
+  font-size: vars.$font-size-title-medium;
+  font-weight: vars.$font-weight-medium;
+  line-height: vars.$line-height-tight;
 }
 
 @mixin body-large {
-  font-size: $font-size-body-large;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-normal;
+  font-size: vars.$font-size-body-large;
+  font-weight: vars.$font-weight-regular;
+  line-height: vars.$line-height-normal;
 }
 
 @mixin body-medium {
-  font-size: $font-size-body-medium;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-normal;
+  font-size: vars.$font-size-body-medium;
+  font-weight: vars.$font-weight-regular;
+  line-height: vars.$line-height-normal;
 }
 
 @mixin body-small {
-  font-size: $font-size-body-small;
-  font-weight: $font-weight-regular;
-  line-height: $line-height-normal;
+  font-size: vars.$font-size-body-small;
+  font-weight: vars.$font-weight-regular;
+  line-height: vars.$line-height-normal;
 }
 
 // Transition mixin
 @mixin transition($properties...) {
   $transitions: ();
   @each $property in $properties {
-    $transitions: append($transitions, $property $transition-standard, comma);
+    $transitions: list.append($transitions, $property vars.$transition-standard, comma);
   }
   transition: $transitions;
 }
 
 // Button mixin
 @mixin button-base {
-  padding: $spacing-sm $spacing-lg;
-  border-radius: $border-radius-pill;
-  font-weight: $font-weight-medium;
+  padding: vars.$spacing-sm vars.$spacing-lg;
+  border-radius: vars.$border-radius-pill;
+  font-weight: vars.$font-weight-medium;
   border: none;
   cursor: pointer;
   display: inline-flex;

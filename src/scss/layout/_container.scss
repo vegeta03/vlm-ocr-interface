@@ -1,5 +1,7 @@
 // Container
 // Styles for the main container
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 main {
   padding: 0 !important;
@@ -8,13 +10,13 @@ main {
   align-items: center;
   justify-content: center;
   overflow: auto;
-  
-  @include respond-to(md) {
-    padding: $spacing-md;
+
+  @include mix.respond-to(md) {
+    padding: vars.$spacing-md;
   }
-  
-  @include respond-below(md) {
-    padding: $spacing-sm;
+
+  @include mix.respond-below(md) {
+    padding: vars.$spacing-sm;
   }
 }
 
@@ -29,15 +31,15 @@ main {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  padding: $spacing-md;
-  
-  @include respond-to(md) {
+  padding: vars.$spacing-md;
+
+  @include mix.respond-to(md) {
     flex-direction: row;
     max-width: 72rem !important; // max-w-6xl
-    border-radius: $border-radius-xl !important;
+    border-radius: vars.$border-radius-xl !important;
   }
-  
-  @include respond-below(md) {
-    padding: $spacing-sm;
+
+  @include mix.respond-below(md) {
+    padding: vars.$spacing-sm;
   }
 }

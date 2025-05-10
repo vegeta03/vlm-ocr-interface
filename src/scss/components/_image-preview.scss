@@ -1,84 +1,86 @@
 // Image Preview
 // Styles for the image preview component
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 #imagePreview {
   flex: 1; // Take remaining space
   min-height: 450px; // Minimum height
-  @include transition(all);
-  @include flex-center;
+  @include mix.transition(all);
+  @include mix.flex-center;
   position: relative;
-  border-radius: $border-radius-lg;
+  border-radius: vars.$border-radius-lg;
   overflow: hidden;
-  
+
   .empty-state {
-    @include flex-column;
-    @include flex-center;
-    padding: $spacing-md;
+    @include mix.flex-column;
+    @include mix.flex-center;
+    padding: vars.$spacing-md;
     color: var(--md-on-surface-variant);
-    
+
     svg {
       width: 3rem;
       height: 3rem;
-      margin-bottom: $spacing-sm;
+      margin-bottom: vars.$spacing-sm;
       opacity: 0.7;
     }
   }
-  
+
   img {
     max-width: 100%;
     max-height: 100%;
     object-fit: contain;
-    
+
     &.hidden {
       display: none;
     }
   }
-  
+
   .page-controls {
     position: absolute;
-    bottom: $spacing-md;
+    bottom: vars.$spacing-md;
     left: 50%;
     transform: translateX(-50%);
     background-color: rgba(255, 255, 255, 0.9);
     backdrop-filter: blur(8px);
-    border-radius: $border-radius-pill;
-    padding: $spacing-xs $spacing-md;
-    @include flex-center;
-    gap: $spacing-md;
+    border-radius: vars.$border-radius-pill;
+    padding: vars.$spacing-xs vars.$spacing-md;
+    @include mix.flex-center;
+    gap: vars.$spacing-md;
     opacity: 0;
-    @include transition(opacity);
-    
+    @include mix.transition(opacity);
+
     button {
       background: none;
       border: none;
       cursor: pointer;
       color: var(--md-on-surface);
-      @include flex-center;
+      @include mix.flex-center;
       width: 2rem;
       height: 2rem;
-      border-radius: $border-radius-circle;
-      
+      border-radius: vars.$border-radius-circle;
+
       &:hover {
         background-color: rgba(0, 0, 0, 0.05);
       }
-      
+
       &:disabled {
         opacity: 0.5;
         cursor: not-allowed;
       }
-      
+
       svg {
         width: 1.25rem;
         height: 1.25rem;
       }
     }
-    
+
     span {
-      @include body-small;
+      @include mix.body-small;
       color: var(--md-on-surface);
     }
   }
-  
+
   &:hover .page-controls {
     opacity: 1;
   }
@@ -88,11 +90,11 @@
   min-height: 600px;
 }
 
-@include respond-below(sm) {
+@include mix.respond-below(sm) {
   #imagePreview {
     height: 220px;
   }
-  
+
   .preview-large #imagePreview {
     height: 300px;
   }

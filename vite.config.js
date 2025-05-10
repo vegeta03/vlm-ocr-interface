@@ -17,7 +17,7 @@ module.exports = defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@import "./src/scss/abstracts/_variables.scss"; @import "./src/scss/abstracts/_mixins.scss"; @import "./src/scss/abstracts/_functions.scss";`
+        // No need for additionalData with the new @use/@forward structure
       }
     }
   },

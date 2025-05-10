@@ -1,5 +1,7 @@
 // Responsive
 // Utility classes for responsive design
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 // Display
 .hidden { display: none; }
@@ -32,11 +34,11 @@
 .justify-evenly { justify-content: space-evenly; }
 
 // Gap
-.gap-1 { gap: $spacing-xs; }
-.gap-2 { gap: $spacing-sm; }
-.gap-4 { gap: $spacing-md; }
-.gap-6 { gap: $spacing-lg; }
-.gap-8 { gap: $spacing-xl; }
+.gap-1 { gap: vars.$spacing-xs; }
+.gap-2 { gap: vars.$spacing-sm; }
+.gap-4 { gap: vars.$spacing-md; }
+.gap-6 { gap: vars.$spacing-lg; }
+.gap-8 { gap: vars.$spacing-xl; }
 
 // Width and height
 .w-full { width: 100%; }
@@ -67,7 +69,7 @@
 .max-w-full { max-width: 100%; }
 
 // Responsive display classes
-@include respond-to(md) {
+@include mix.respond-to(md) {
   .md-block { display: block; }
   .md-hidden { display: none; }
   .md-flex { display: flex; }
@@ -76,18 +78,18 @@
   .md-w-two-thirds { width: 66.666667%; }
   .md-flex-row { flex-direction: row; }
   .md-flex-col { flex-direction: column; }
-  .md-ml-6 { margin-left: $spacing-lg; }
+  .md-ml-6 { margin-left: vars.$spacing-lg; }
   .md-mt-0 { margin-top: 0; }
-  .md-p-4 { padding: $spacing-md; }
+  .md-p-4 { padding: vars.$spacing-md; }
 }
 
-@include respond-below(md) {
+@include mix.respond-below(md) {
   .max-md-block { display: block; }
   .max-md-hidden { display: none; }
   .max-md-flex-col { flex-direction: column; }
   .max-md-w-full { width: 100%; }
-  .max-md-mt-4 { margin-top: $spacing-md; }
-  .max-md-p-2 { padding: $spacing-sm; }
+  .max-md-mt-4 { margin-top: vars.$spacing-md; }
+  .max-md-p-2 { padding: vars.$spacing-sm; }
 }
 
 // Overflow

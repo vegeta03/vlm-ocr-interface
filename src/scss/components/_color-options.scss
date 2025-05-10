@@ -1,15 +1,17 @@
 // Color Options
 // Styles for theme color selectors
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 .color-option {
   width: 32px;
   height: 32px;
-  border-radius: $border-radius-circle;
+  border-radius: vars.$border-radius-circle;
   border: 2px solid var(--md-outline);
   cursor: pointer;
-  @include flex-center;
+  @include mix.flex-center;
   color: var(--md-on-surface-variant);
-  @include transition(transform, border-color, box-shadow);
+  @include mix.transition(transform, border-color, box-shadow);
   position: relative;
   z-index: 1;
 

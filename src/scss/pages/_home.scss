@@ -1,51 +1,53 @@
 // Home Page
 // Styles specific to the home page
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 // File upload section
 .file-upload-section {
   background-color: var(--md-surface-variant);
-  padding: $spacing-md;
-  border-radius: $border-radius-lg;
-  @include elevation(2);
-  
+  padding: vars.$spacing-md;
+  border-radius: vars.$border-radius-lg;
+  @include mix.elevation(2);
+
   h2 {
-    margin-bottom: $spacing-sm;
+    margin-bottom: vars.$spacing-sm;
   }
-  
+
   p {
-    @include body-medium;
+    @include mix.body-medium;
     color: var(--md-on-surface-variant);
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
-  
+
   .supported-formats {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-xs;
-    margin: $spacing-sm 0;
+    gap: vars.$spacing-xs;
+    margin: vars.$spacing-sm 0;
   }
-  
+
   #fileInput {
     display: none;
   }
-  
+
   label[for="fileInput"] {
-    @include flex-center;
-    gap: $spacing-sm;
+    @include mix.flex-center;
+    gap: vars.$spacing-sm;
   }
-  
+
   #fileDetails {
-    margin-top: $spacing-md;
-    padding: $spacing-sm;
+    margin-top: vars.$spacing-md;
+    padding: vars.$spacing-sm;
     background-color: var(--md-surface);
-    border-radius: $border-radius-md;
-    @include body-medium;
+    border-radius: vars.$border-radius-md;
+    @include mix.body-medium;
     color: var(--md-on-surface);
-    
+
     .empty-state {
-      @include flex-center;
-      gap: $spacing-sm;
-      
+      @include mix.flex-center;
+      gap: vars.$spacing-sm;
+
       svg {
         width: 1.25rem;
         height: 1.25rem;
@@ -58,22 +60,22 @@
 // Preview section
 .preview-section {
   h2 {
-    margin-bottom: $spacing-sm;
+    margin-bottom: vars.$spacing-sm;
   }
-  
+
   p {
-    @include body-medium;
+    @include mix.body-medium;
     color: var(--md-on-surface-variant);
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
-  
+
   .preview-controls {
-    @include flex-between;
-    margin-bottom: $spacing-sm;
-    
+    @include mix.flex-between;
+    margin-bottom: vars.$spacing-sm;
+
     .preview-actions {
-      @include flex-center;
-      gap: $spacing-sm;
+      @include mix.flex-center;
+      gap: vars.$spacing-sm;
     }
   }
 }
@@ -81,75 +83,75 @@
 // OCR output section
 .right-panel {
   background-color: var(--md-surface-variant);
-  padding: $spacing-md;
-  border-radius: $border-radius-lg;
-  @include elevation(2);
-  
+  padding: vars.$spacing-md;
+  border-radius: vars.$border-radius-lg;
+  @include mix.elevation(2);
+
   h2 {
-    margin-bottom: $spacing-sm;
+    margin-bottom: vars.$spacing-sm;
   }
-  
+
   p {
-    @include body-medium;
+    @include mix.body-medium;
     color: var(--md-on-surface-variant);
-    margin-bottom: $spacing-md;
+    margin-bottom: vars.$spacing-md;
   }
-  
+
   .format-options {
     display: flex;
     flex-wrap: wrap;
-    gap: $spacing-xs;
-    margin: $spacing-sm 0;
+    gap: vars.$spacing-xs;
+    margin: vars.$spacing-sm 0;
   }
-  
+
   #ocrOutput {
-    margin-top: $spacing-sm;
-    border-radius: $border-radius-lg;
+    margin-top: vars.$spacing-sm;
+    border-radius: vars.$border-radius-lg;
     overflow: hidden;
-    
+
     .flex {
-      @include flex-between;
-      margin-bottom: $spacing-sm;
-      
+      @include mix.flex-between;
+      margin-bottom: vars.$spacing-sm;
+
       .status-indicator {
-        @include flex-center;
-        
+        @include mix.flex-center;
+
         .status-dot {
-          margin-right: $spacing-sm;
+          margin-right: vars.$spacing-sm;
         }
-        
+
         #statusText {
-          @include body-small;
+          @include mix.body-small;
         }
       }
     }
-    
+
     textarea {
       width: 100%;
       height: 12rem;
-      padding: $spacing-md;
+      padding: vars.$spacing-md;
       background-color: var(--md-surface);
-      border-radius: $border-radius-lg;
+      border-radius: vars.$border-radius-lg;
       color: var(--md-on-surface);
       outline: none;
       resize: none;
-      font-family: $font-family-code;
-      
+      font-family: vars.$font-family-code;
+
       &:focus {
         box-shadow: 0 0 0 2px var(--md-primary);
-        @include transition(box-shadow);
+        @include mix.transition(box-shadow);
       }
-      
+
       &::placeholder {
         color: var(--md-on-surface-variant);
       }
     }
   }
-  
+
   .action-buttons {
     display: flex;
     justify-content: flex-end;
-    gap: $spacing-sm;
-    margin-top: $spacing-md;
+    gap: vars.$spacing-sm;
+    margin-top: vars.$spacing-md;
   }
 }

@@ -1,11 +1,13 @@
 // Status Indicators
 // Styles for status indicators and progress bars
+@use '../abstracts/variables' as vars;
+@use '../abstracts/mixins' as mix;
 
 // Status dot
 .status-dot {
   width: 8px;
   height: 8px;
-  border-radius: $border-radius-circle;
+  border-radius: vars.$border-radius-circle;
   background-color: var(--md-secondary);
 }
 
@@ -57,22 +59,22 @@
   &.hidden {
     display: none;
   }
-  
+
   .flex {
-    @include flex-between;
-    
+    @include mix.flex-between;
+
     .file-name {
-      font-weight: $font-weight-medium;
+      font-weight: vars.$font-weight-medium;
     }
-    
+
     .file-size {
       color: var(--md-on-surface-variant);
     }
   }
-  
+
   .progress-container {
-    margin-top: $spacing-sm;
-    
+    margin-top: vars.$spacing-sm;
+
     &.hidden {
       display: none;
     }
