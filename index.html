@@ -5,64 +5,150 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>VLM OCR Interface</title>
     <link rel="stylesheet" href="./dist/output.css" />
+    <link rel="stylesheet" href="./src/styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Roboto+Mono&display=swap" rel="stylesheet">
   </head>
-  <body class="bg-gray-100 h-screen flex items-center justify-center">
-    <div
-      class="container bg-white shadow-md rounded-lg p-8 flex flex-col md:flex-row"
-    >
-      <div class="left-panel md:w-1/2 flex flex-col space-y-4">
-        <div
-          class="file-upload-section bg-gray-50 p-4 rounded-lg border border-gray-200"
-        >
-          <h2 class="text-lg font-semibold text-gray-700 mb-2">
-            File upload for OCR using a VLM
-          </h2>
-          <p class="text-sm text-gray-500">
-            Supports JPG, PNG, PDF and multi-page TIFF files
-          </p>
-          <p class="text-sm text-gray-500 mb-2">
-            File details will appear below after selection
-          </p>
-          <input type="file" id="fileInput" class="hidden" />
-          <label
-            for="fileInput"
-            class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 cursor-pointer"
-          >
-            Upload File
-          </label>
-          <div id="fileDetails" class="mt-2 text-sm text-gray-600">
-            No file selected
+  <body class="h-screen flex flex-col theme-blue">
+    <header class="theme-header p-2 md:p-4 flex justify-between items-center shadow-sm">
+      <h1 class="text-xl font-medium">VLM OCR Interface</h1>
+      <div class="theme-selector flex items-center space-x-2">
+        <span class="text-sm">Theme</span>
+        <div class="color-options flex space-x-1">
+          <button class="color-option active" data-theme="blue" style="background-color: #1a73e8;"></button>
+          <button class="color-option" data-theme="purple" style="background-color: #8430ce;"></button>
+          <button class="color-option" data-theme="green" style="background-color: #0f9d58;"></button>
+          <button class="color-option" data-theme="dark" title="Dark theme"></button>
+          <button class="color-option" data-theme="custom" style="background: linear-gradient(135deg, #ff7043, #2979ff);">+</button>
+        </div>
+      </div>
+    </header>
+    
+    <main class="flex-grow flex items-center justify-center p-2 md:p-4 overflow-auto">
+      <div class="container bg-surface elevation-1 rounded-xl p-4 flex flex-col md:flex-row max-w-6xl w-full overflow-hidden">
+        <div class="left-panel md:w-1/2 flex flex-col space-y-4">
+          <div class="file-upload-section bg-surface-variant p-4 rounded-lg elevation-2">
+            <h2 class="text-title-large mb-2">File upload for OCR using a VLM</h2>
+            <p class="text-body-medium text-on-surface-variant">Supports JPG, PNG, PDF and multi-page TIFF files</p>
+            <div class="supported-formats flex flex-wrap gap-1 my-2">
+              <span class="chip">JPG</span>
+              <span class="chip">PNG</span>
+              <span class="chip">PDF</span>
+              <span class="chip">TIFF</span>
+            </div>
+            <p class="text-body-medium text-on-surface-variant mb-4">File details will appear below after selection</p>
+            <input type="file" id="fileInput" class="hidden" accept=".jpg,.jpeg,.png,.pdf,.tiff,.tif" />
+            <label for="fileInput" class="btn-primary flex items-center gap-2">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M11 16V7.85L8.4 10.45L7 9L12 4L17 9L15.6 10.45L13 7.85V16H11Z" fill="currentColor"/>
+                <path d="M6 20C5.45 20 4.97917 19.8042 4.5875 19.4125C4.19583 19.0208 4 18.55 4 18V15H6V18H18V15H20V18C20 18.55 19.8042 19.0208 19.4125 19.4125C19.0208 19.8042 18.55 20 18 20H6Z" fill="currentColor"/>
+              </svg>
+              Upload File
+            </label>
+            <div id="fileDetails" class="mt-4 p-3 bg-surface rounded text-body-medium text-on-surface state-empty">
+              <div class="empty-state flex items-center gap-2">
+                <svg class="w-5 h-5 text-on-surface-variant" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2ZM18 20H6V4H13V9H18V20Z" fill="currentColor"/>
+                </svg>
+                <span>No file selected</span>
+              </div>
+              <div class="file-info hidden">
+                <div class="flex items-center justify-between">
+                  <span class="file-name font-medium"></span>
+                  <span class="file-size text-on-surface-variant"></span>
+                </div>
+                <div class="progress-container mt-2 hidden">
+                  <div class="progress-bar"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-section bg-surface-variant p-4 rounded-lg elevation-2">
+            <div class="controls">
+              <h2 class="text-title-large">Preview selected Image or TIFF file</h2>
+              <button id="togglePreviewSize" class="btn-toggle-size" title="Toggle preview size">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M15 3H21V9H19V5.41L15.17 9.24C15.06 9.35 14.92 9.42 14.76 9.46C14.6 9.5 14.43 9.48 14.28 9.42C14.13 9.36 14 9.26 13.9 9.13C13.8 9 13.75 8.85 13.75 8.7V4H15V7.3L18.59 3.7L15 3ZM3.42 15.18L3 15.6V3H11V5H5V14.4L9.2 10.2L10.62 11.62L6.43 15.82L9 18.4V15H11V21H5L4.58 20.58L8.4 16.75L7 15.34L3.42 18.93V15.18Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+            <p class="text-body-medium text-on-surface-variant mb-4">Navigate through pages using controls below</p>
+            <div id="imagePreview" class="rounded-lg overflow-hidden flex justify-center items-center bg-surface/20 h-48 relative">
+              <div class="empty-state flex flex-col items-center justify-center p-6 text-on-surface-variant">
+                <svg class="w-12 h-12 mb-2 opacity-70" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19 5V19H5V5H19ZM19 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V5C21 3.9 20.1 3 19 3ZM14.14 11.86L11.14 15.73L9 13.14L6 17H18L14.14 11.86Z" fill="currentColor"/>
+                </svg>
+                <span>Upload an image to preview</span>
+              </div>
+              <img src="" alt="Preview" class="max-w-full max-h-full object-contain hidden" />
+              <div class="page-controls absolute bottom-0 left-0 right-0 flex justify-center items-center bg-surface/80 backdrop-blur-sm p-2 opacity-0 transition-opacity">
+                <button id="prevPage" class="btn-icon" disabled>
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.41 7.41L14 6L8 12L14 18L15.41 16.59L10.83 12L15.41 7.41Z" fill="currentColor"/>
+                  </svg>
+                </button>
+                <span id="pageInfo" class="mx-2 text-body-small">Page 0 of 0</span>
+                <button id="nextPage" class="btn-icon" disabled>
+                  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M10.02 6L8.61 7.41L13.19 12L8.61 16.59L10.02 18L16.02 12L10.02 6Z" fill="currentColor"/>
+                  </svg>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div
-          class="preview-section bg-gray-50 p-4 rounded-lg border border-gray-200"
-        >
-          <h2 class="text-lg font-semibold text-gray-700 mb-2">
-            Preview selected Image or TIFF file
-          </h2>
-          <p class="text-sm text-gray-500">Navigate through pages using controls below</p>
-          <div id="imagePreview" class="mt-2">
-            <img src="" alt="Preview" style="max-width: 100%; display: none" />
+        <div class="right-panel md:w-1/2 md:ml-6 mt-4 md:mt-0 bg-surface-variant p-4 rounded-lg elevation-2 flex flex-col">
+          <h2 class="text-title-large mb-2">Raw or Preview of VLM OCR extracted</h2>
+          <div class="format-options flex flex-wrap gap-1 my-2">
+            <button class="chip chip-selectable active" data-format="markdown">Markdown</button>
+            <button class="chip chip-selectable" data-format="json">JSON</button>
+            <button class="chip chip-selectable" data-format="yaml">YAML</button>
+          </div>
+          <p class="text-body-medium text-on-surface-variant mb-4">Select extract format above</p>
+          <div id="ocrOutput" class="flex-grow mt-2 rounded-lg overflow-hidden">
+            <div class="flex justify-between items-center mb-2">
+              <div class="status-indicator flex items-center">
+                <span class="status-dot bg-secondary mr-2"></span>
+                <span id="statusText" class="text-body-small">Ready</span>
+              </div>
+              <button id="copyButton" class="btn-icon" disabled title="Copy to clipboard">
+                <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5ZM19 21H8V7H19V21Z" fill="currentColor"/>
+                </svg>
+              </button>
+            </div>
+            <textarea class="w-full h-48 p-4 bg-surface rounded-lg text-on-surface focus:outline-none focus:ring-2 focus:ring-primary transition-shadow resize-none code-text" placeholder="OCR output will appear here" readonly></textarea>
+          </div>
+          <div class="action-buttons flex justify-end space-x-2 mt-4">
+            <button id="processButton" class="btn-secondary" disabled>Process Image</button>
+            <button id="downloadButton" class="btn-primary" disabled>
+              <svg class="w-5 h-5 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M19 9H15V3H9V9H5L12 16L19 9ZM5 18V20H19V18H5Z" fill="currentColor"/>
+              </svg>
+              Download
+            </button>
           </div>
         </div>
       </div>
-
-      <div
-        class="right-panel md:w-1/2 md:ml-8 bg-gray-50 p-4 rounded-lg border border-gray-200"
-      >
-        <h2 class="text-lg font-semibold text-gray-700 mb-2">
-          Raw or Preview of VLM OCR extracted
-        </h2>
-        <p class="text-sm text-gray-500">Results available in Markdown, JSON, or YAML formats</p>
-        <div id="ocrOutput" class="mt-2">
-          <textarea
-            class="w-full h-64 p-2 border rounded-md text-sm text-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            placeholder="OCR output will appear here"
-          ></textarea>
+    </main>
+    
+    <div id="colorPickerModal" class="fixed inset-0 bg-black/50 flex items-center justify-center z-10 hidden">
+      <div class="bg-surface rounded-xl p-6 max-w-sm w-full elevation-3">
+        <h3 class="text-title-large mb-4">Customize Theme</h3>
+        <div class="color-picker-container mb-4">
+          <label class="block text-body-medium text-on-surface-variant mb-2">Choose primary color</label>
+          <input type="color" id="colorPicker" class="w-full h-12 rounded cursor-pointer">
+        </div>
+        <div class="flex justify-end space-x-2">
+          <button id="cancelCustomColor" class="btn-text">Cancel</button>
+          <button id="applyCustomColor" class="btn-primary">Apply</button>
         </div>
       </div>
     </div>
+    
     <script type="module" src="./src/index.ts"></script>
   </body>
 </html>
