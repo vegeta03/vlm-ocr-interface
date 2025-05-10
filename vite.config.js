@@ -12,7 +12,8 @@ module.exports = defineConfig({
     }
   },
   server: {
-    open: true
+    open: false, // Prevents automatic browser opening
+    port: 5173   // Sets a fixed port
   },
   css: {
     preprocessorOptions: {

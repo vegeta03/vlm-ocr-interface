@@ -30,3 +30,11 @@ main {
     padding: vars.$spacing-sm; // Adjust internal padding for smaller screens
   }
 }
+
+// Theme Selector
+.theme-selector {
+  position: absolute;
+  top: vars.$spacing-sm; // Using existing SASS variable for spacing
+  right: vars.$spacing-sm; // Using existing SASS variable for spacing
+  z-index: 1000; // Ensure it's above other content if necessary
+}
