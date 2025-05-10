@@ -7,7 +7,7 @@
 .left-panel, .right-panel {
   height: 100%;
   overflow-y: auto;
-  padding: vars.$spacing-md;
+  padding: vars.$spacing-lg;
   @include mix.flex-column;
 
   @include mix.respond-to(md) {
@@ -25,6 +25,32 @@
     height: auto;
     margin-bottom: vars.$spacing-md;
   }
+  
+  // Adding consistent spacing for both sections
+  .file-upload-section {
+    padding: vars.$spacing-lg;
+  }
+  
+  .preview-section {
+    .preview-controls {
+      padding-left: vars.$spacing-lg;
+      padding-right: vars.$spacing-lg;
+      padding-top: vars.$spacing-lg;
+      
+      h2 {
+        margin: 0;
+      }
+    }
+    
+    > p {
+      padding-left: vars.$spacing-lg;
+      padding-right: vars.$spacing-lg;
+    }
+    
+    #imagePreview {
+      padding: 0;
+    }
+  }
 
   // Adjust for bottom padding
   .preview-section:last-child {
@@ -36,7 +62,7 @@
   @include mix.flex-column;
 
   @include mix.respond-to(md) {
-    margin-left: 1.5rem; // ml-6
+    margin-left: vars.$spacing-xl;
   }
 
   @include mix.respond-below(md) {
@@ -51,5 +77,6 @@
   textarea {
     flex: 1;
     min-height: 200px;
+    padding: vars.$spacing-sm;
   }
 }

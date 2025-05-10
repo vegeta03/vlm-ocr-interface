@@ -40,12 +40,6 @@
           <div class="file-upload-section bg-surface-variant elevation-2">
             <h2 class="text-title-large mb-2">File upload for OCR using a VLM</h2>
             <p class="text-body-medium text-on-surface-variant">Supports JPG, PNG, PDF and multi-page TIFF files</p>
-            <div class="supported-formats">
-              <span class="chip">JPG</span>
-              <span class="chip">PNG</span>
-              <span class="chip">PDF</span>
-              <span class="chip">TIFF</span>
-            </div>
             <p class="text-body-medium text-on-surface-variant mb-4">File details will appear below after selection</p>
             <input type="file" id="fileInput" class="hidden" accept=".jpg,.jpeg,.png,.pdf,.tiff,.tif" />
             <label for="fileInput" class="btn-primary">
@@ -63,9 +57,10 @@
                 <span>No file selected</span>
               </div>
               <div class="file-info hidden">
-                <div class="flex">
+                <div class="flex items-center">
                   <span class="file-name font-medium"></span>
-                  <span class="file-size text-on-surface-variant"></span>
+                  <span class="file-size text-on-surface-variant ml-2"></span>
+                  <button id="clearFileButton" class="btn-secondary btn-small ml-auto">Clear</button>
                 </div>
                 <div class="progress-container hidden">
                   <div class="progress-bar"></div>
@@ -74,16 +69,16 @@
             </div>
           </div>
 
-          <div class="preview-section bg-surface-variant elevation-2">
-            <div class="preview-controls">
-              <h2 class="text-title-large">Preview selected Image or TIFF file</h2>
-              <button id="togglePreviewSize" class="btn-toggle-size" title="Toggle preview size">
-                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M15 3H21V9H19V5.41L15.17 9.24C15.06 9.35 14.92 9.42 14.76 9.46C14.6 9.5 14.43 9.48 14.28 9.42C14.13 9.36 14 9.26 13.9 9.13C13.8 9 13.75 8.85 13.75 8.7V4H15V7.3L18.59 3.7L15 3ZM3.42 15.18L3 15.6V3H11V5H5V14.4L9.2 10.2L10.62 11.62L6.43 15.82L9 18.4V15H11V21H5L4.58 20.58L8.4 16.75L7 15.34L3.42 18.93V15.18Z" fill="currentColor"/>
-                </svg>
-              </button>
-            </div>
-            <p class="text-body-medium text-on-surface-variant mb-4">Navigate through pages using controls below</p>
+          <div class="preview-section bg-surface-variant elevation-2" style="padding: 24px;">
+            <div class="preview-controls" style="padding: 0; margin-bottom: 8px;">
+                <h2 class="text-title-large" style="margin: 0; padding: 0;">Preview selected Image or TIFF file</h2>
+                <button id="togglePreviewSize" class="btn-toggle-size" title="Toggle preview size">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 3H21V9H19V5.41L15.17 9.24C15.06 9.35 14.92 9.42 14.76 9.46C14.6 9.5 14.43 9.48 14.28 9.42C14.13 9.36 14 9.26 13.9 9.13C13.8 9 13.75 8.85 13.75 8.7V4H15V7.3L18.59 3.7L15 3ZM3.42 15.18L3 15.6V3H11V5H5V14.4L9.2 10.2L10.62 11.62L6.43 15.82L9 18.4V15H11V21H5L4.58 20.58L8.4 16.75L7 15.34L3.42 18.93V15.18Z" fill="currentColor"/>
+                  </svg>
+                </button>
+              </div>
+              <p class="text-body-medium text-on-surface-variant mb-4" style="margin-top: 0; padding: 0;">Navigate through pages using controls below</p>
             <div id="imagePreview">
               <div class="empty-state">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

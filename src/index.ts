@@ -34,6 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const colorPicker = document.getElementById("colorPicker") as HTMLInputElement;
   const applyCustomColorBtn = document.getElementById("applyCustomColor") as HTMLButtonElement;
   const cancelCustomColorBtn = document.getElementById("cancelCustomColor") as HTMLButtonElement;
+  const clearFileButton = document.getElementById("clearFileButton") as HTMLButtonElement;
 
   // State
   const state: FileDisplayState = {
@@ -62,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
   prevPageBtn.addEventListener("click", () => navigatePage(-1));
   nextPageBtn.addEventListener("click", () => navigatePage(1));
   togglePreviewSizeBtn.addEventListener("click", togglePreviewSize);
+  clearFileButton.addEventListener("click", handleClearFile);
 
   // Theme selection event listeners
   colorOptions.forEach(option => {
@@ -341,6 +343,13 @@ document.addEventListener("DOMContentLoaded", () => {
     setTimeout(() => {
       copyButton.innerHTML = originalText;
     }, 2000);
+  }
+
+  function handleClearFile() {
+    if (fileInput) {
+      fileInput.value = ""; // Clear the file input element
+    }
+    resetDisplay(); // Reset the UI and state
   }
 
   // Theme functions

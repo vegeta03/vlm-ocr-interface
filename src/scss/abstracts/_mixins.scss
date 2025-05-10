@@ -21,13 +21,13 @@
 
 @mixin respond-below($breakpoint) {
   @if $breakpoint == sm {
-    @media (max-width: vars.$breakpoint-sm - 1) { @content; }
+    @media (max-width: (vars.$breakpoint-sm - 1)) { @content; }
   } @else if $breakpoint == md {
-    @media (max-width: vars.$breakpoint-md - 1) { @content; }
+    @media (max-width: (vars.$breakpoint-md - 1)) { @content; }
   } @else if $breakpoint == lg {
-    @media (max-width: vars.$breakpoint-lg - 1) { @content; }
+    @media (max-width: (vars.$breakpoint-lg - 1)) { @content; }
   } @else if $breakpoint == xl {
-    @media (max-width: vars.$breakpoint-xl - 1) { @content; }
+    @media (max-width: (vars.$breakpoint-xl - 1)) { @content; }
   }
 }
 
@@ -102,7 +102,7 @@
 
 // Button mixin
 @mixin button-base {
-  padding: vars.$spacing-sm vars.$spacing-lg;
+  padding: vars.$font-size-body-small vars.$spacing-md;
   border-radius: vars.$border-radius-pill;
   font-weight: vars.$font-weight-medium;
   border: none;
