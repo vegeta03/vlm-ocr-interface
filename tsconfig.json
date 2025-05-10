@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true // If you plan to import JSON files
+  },
+  "include": [
+    "src/**/*" // Include all files in the src directory
+  ],
+  "exclude": ["node_modules", "**/*.spec.ts"]
+}
