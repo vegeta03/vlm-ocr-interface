@@ -21,13 +21,16 @@ main {
   flex-direction: column; // Default for smaller screens
   overflow: hidden; // Panels inside will scroll
   padding: vars.$spacing-md; // Internal padding for content within container
+  gap: vars.$spacing-md; // Add gap between panels
 
   @include mix.respond-to(md) {
     flex-direction: row; // Side-by-side panels on medium screens and up
+    justify-content: space-between; // Ensure panels are aligned at the edges
   }
 
   @include mix.respond-below(md) {
     padding: vars.$spacing-sm; // Adjust internal padding for smaller screens
+    gap: vars.$spacing-sm; // Smaller gap for smaller screens
   }
 }
 

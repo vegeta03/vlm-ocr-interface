@@ -83,7 +83,7 @@
 // OCR output section
 .right-panel {
   background-color: var(--md-surface-variant);
-  padding: vars.$spacing-md;
+  padding: vars.$spacing-lg; // Match left panel padding
   border-radius: vars.$border-radius-lg;
   @include mix.elevation(2);
 
