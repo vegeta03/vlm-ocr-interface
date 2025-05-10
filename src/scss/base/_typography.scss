@@ -3,10 +3,15 @@
 @use '../abstracts/variables' as vars;
 @use '../abstracts/mixins' as mix;
 
-body {
-  font-family: vars.$font-family-base;
+html, body {
+  font-family: vars.$font-family-base !important;
   color: var(--md-on-surface);
   line-height: vars.$line-height-normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  font-display: swap;
+  letter-spacing: 0.01em;
 }
 
 h1, h2, h3, h4, h5, h6 {
