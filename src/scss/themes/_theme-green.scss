@@ -1,0 +1,25 @@
+// Green Theme
+
+.theme-green {
+  // Primary colors
+  --md-primary: #{$green-primary};
+  --md-primary-container: #{$green-primary-container};
+  --md-on-primary: #{$green-on-primary};
+  --md-on-primary-container: #{$green-on-primary-container};
+  
+  // Secondary colors
+  --md-secondary: #{$green-secondary};
+  --md-secondary-container: #{$green-secondary-container};
+  --md-on-secondary: #{$green-on-secondary};
+  --md-on-secondary-container: #{$green-on-secondary-container};
+  
+  // Surface colors
+  --md-surface: #{$surface};
+  --md-surface-variant: #{$surface-variant};
+  --md-on-surface: #{$on-surface};
+  --md-on-surface-variant: #{$on-surface-variant};
+  
+  // Other colors
+  --md-outline: #{$outline};
+  --md-error: #{$error};
+}

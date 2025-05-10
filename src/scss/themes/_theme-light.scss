@@ -1,0 +1,26 @@
+// Light Theme
+// Default theme styles
+
+.theme-light {
+  // Primary colors
+  --md-primary: #{$light-primary};
+  --md-primary-container: #{$light-primary-container};
+  --md-on-primary: #{$light-on-primary};
+  --md-on-primary-container: #{$light-on-primary-container};
+  
+  // Secondary colors
+  --md-secondary: #{$light-secondary};
+  --md-secondary-container: #{$light-secondary-container};
+  --md-on-secondary: #{$light-on-secondary};
+  --md-on-secondary-container: #{$light-on-secondary-container};
+  
+  // Surface colors
+  --md-surface: #{$surface};
+  --md-surface-variant: #{$surface-variant};
+  --md-on-surface: #{$on-surface};
+  --md-on-surface-variant: #{$on-surface-variant};
+  
+  // Other colors
+  --md-outline: #{$outline};
+  --md-error: #{$error};
+}

@@ -1,0 +1,80 @@
+// Status Indicators
+// Styles for status indicators and progress bars
+
+// Status dot
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: $border-radius-circle;
+  background-color: var(--md-secondary);
+}
+
+// Animation for status changes
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.status-dot.processing {
+  animation: pulse 1.5s infinite ease-in-out;
+}
+
+// Progress bar
+.progress-container {
+  height: 4px;
+  background-color: rgba(var(--md-primary), 0.2);
+  border-radius: 2px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: var(--md-primary);
+  width: 0%;
+  transition: width 0.3s ease;
+}
+
+// File details
+.state-empty .file-info {
+  display: none;
+}
+
+.state-empty .empty-state {
+  display: flex;
+}
+
+.file-info {
+  &.hidden {
+    display: none;
+  }
+  
+  .flex {
+    @include flex-between;
+    
+    .file-name {
+      font-weight: $font-weight-medium;
+    }
+    
+    .file-size {
+      color: var(--md-on-surface-variant);
+    }
+  }
+  
+  .progress-container {
+    margin-top: $spacing-sm;
+    
+    &.hidden {
+      display: none;
+    }
+  }
+}

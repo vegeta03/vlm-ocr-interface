@@ -1,0 +1,54 @@
+// Colors
+// Utility classes for colors
+
+// Text colors
+.text-primary { color: var(--md-primary); }
+.text-on-primary { color: var(--md-on-primary); }
+.text-secondary { color: var(--md-secondary); }
+.text-on-secondary { color: var(--md-on-secondary); }
+.text-on-surface { color: var(--md-on-surface); }
+.text-on-surface-variant { color: var(--md-on-surface-variant); }
+.text-error { color: var(--md-error); }
+
+// Background colors
+.bg-primary { background-color: var(--md-primary); }
+.bg-primary-container { background-color: var(--md-primary-container); }
+.bg-secondary { background-color: var(--md-secondary); }
+.bg-secondary-container { background-color: var(--md-secondary-container); }
+.bg-surface { background-color: var(--md-surface); }
+.bg-surface-variant { background-color: var(--md-surface-variant); }
+.bg-error { background-color: var(--md-error); }
+
+// Border colors
+.border-primary { border-color: var(--md-primary); }
+.border-secondary { border-color: var(--md-secondary); }
+.border-outline { border-color: var(--md-outline); }
+.border-error { border-color: var(--md-error); }
+
+// Opacity variants
+.bg-primary-10 { background-color: rgba(var(--md-primary), 0.1); }
+.bg-primary-20 { background-color: rgba(var(--md-primary), 0.2); }
+.bg-primary-30 { background-color: rgba(var(--md-primary), 0.3); }
+
+.bg-surface-10 { background-color: rgba(var(--md-surface), 0.1); }
+.bg-surface-20 { background-color: rgba(var(--md-surface), 0.2); }
+.bg-surface-30 { background-color: rgba(var(--md-surface), 0.3); }
+
+// Common color utilities
+.bg-transparent { background-color: transparent; }
+.bg-black-50 { background-color: rgba(0, 0, 0, 0.5); }
+.bg-white-50 { background-color: rgba(255, 255, 255, 0.5); }
+
+// Hover effects
+.hover-bg-primary {
+  &:hover {
+    background-color: var(--md-primary);
+    color: var(--md-on-primary);
+  }
+}
+
+.hover-bg-surface-variant {
+  &:hover {
+    background-color: var(--md-surface-variant);
+  }
+}

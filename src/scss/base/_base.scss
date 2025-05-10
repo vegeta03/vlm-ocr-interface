@@ -1,0 +1,64 @@
+// Base
+// Base element styles
+
+body {
+  background-color: #fafbfc;
+  @include transition(all);
+  margin: 0;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+// Fix background colors for base elements to support dark mode
+main {
+  background-color: inherit;
+  color: inherit;
+}
+
+// Background & Surface colors
+.bg-surface {
+  background-color: var(--md-surface);
+}
+
+.bg-surface-variant {
+  background-color: var(--md-surface-variant);
+}
+
+.text-on-surface {
+  color: var(--md-on-surface);
+}
+
+.text-on-surface-variant {
+  color: var(--md-on-surface-variant);
+}
+
+// Elevation
+.elevation-1 {
+  @include elevation(1);
+}
+
+.elevation-2 {
+  @include elevation(2);
+}
+
+.elevation-3 {
+  @include elevation(3);
+}
+
+// Additional utility classes for dynamic theming
+.bg-primary {
+  background-color: var(--md-primary);
+}
+
+.text-primary {
+  color: var(--md-primary);
+}
+
+.bg-secondary {
+  background-color: var(--md-secondary);
+}
+
+.text-secondary {
+  color: var(--md-secondary);
+}

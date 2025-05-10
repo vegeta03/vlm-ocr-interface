@@ -1,0 +1,99 @@
+// Image Preview
+// Styles for the image preview component
+
+#imagePreview {
+  flex: 1; // Take remaining space
+  min-height: 450px; // Minimum height
+  @include transition(all);
+  @include flex-center;
+  position: relative;
+  border-radius: $border-radius-lg;
+  overflow: hidden;
+  
+  .empty-state {
+    @include flex-column;
+    @include flex-center;
+    padding: $spacing-md;
+    color: var(--md-on-surface-variant);
+    
+    svg {
+      width: 3rem;
+      height: 3rem;
+      margin-bottom: $spacing-sm;
+      opacity: 0.7;
+    }
+  }
+  
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    
+    &.hidden {
+      display: none;
+    }
+  }
+  
+  .page-controls {
+    position: absolute;
+    bottom: $spacing-md;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    border-radius: $border-radius-pill;
+    padding: $spacing-xs $spacing-md;
+    @include flex-center;
+    gap: $spacing-md;
+    opacity: 0;
+    @include transition(opacity);
+    
+    button {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: var(--md-on-surface);
+      @include flex-center;
+      width: 2rem;
+      height: 2rem;
+      border-radius: $border-radius-circle;
+      
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+      }
+      
+      &:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      
+      svg {
+        width: 1.25rem;
+        height: 1.25rem;
+      }
+    }
+    
+    span {
+      @include body-small;
+      color: var(--md-on-surface);
+    }
+  }
+  
+  &:hover .page-controls {
+    opacity: 1;
+  }
+}
+
+.preview-large #imagePreview {
+  min-height: 600px;
+}
+
+@include respond-below(sm) {
+  #imagePreview {
+    height: 220px;
+  }
+  
+  .preview-large #imagePreview {
+    height: 300px;
+  }
+}

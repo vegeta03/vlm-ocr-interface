@@ -1,0 +1,47 @@
+// Color Options
+// Styles for theme color selectors
+
+.color-option {
+  width: 32px;
+  height: 32px;
+  border-radius: $border-radius-circle;
+  border: 2px solid var(--md-outline);
+  cursor: pointer;
+  @include flex-center;
+  color: var(--md-on-surface-variant);
+  @include transition(transform, border-color, box-shadow);
+  position: relative;
+  z-index: 1;
+
+  &:hover {
+    transform: scale(1.1);
+    border-color: var(--md-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  &.active {
+    transform: scale(1.15);
+    border-color: var(--md-primary);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+
+  svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  &[data-theme="light"] {
+    background-color: #ffffff;
+    color: #1a73e8;
+  }
+
+  &[data-theme="dark"] {
+    background-color: #202124;
+    color: #8ab4f8;
+  }
+
+  &[data-theme="custom"] {
+    background: linear-gradient(135deg, #ff7043, #2979ff);
+    color: #ffffff;
+  }
+}

@@ -1,0 +1,37 @@
+// Theme Variables
+// This file contains all theme-related variables
+
+// Light theme (default)
+$light-primary: #1a73e8;
+$light-primary-container: #d3e3fd;
+$light-on-primary: #ffffff;
+$light-on-primary-container: #1a73e8;
+$light-secondary: #5bb974;
+$light-secondary-container: #d7f8e8;
+$light-on-secondary: #ffffff;
+$light-on-secondary-container: #5bb974;
+
+// Dark theme
+$dark-primary: #8ab4f8;
+$dark-primary-container: rgba(138, 180, 248, 0.15);
+$dark-on-primary: #202124;
+$dark-on-primary-container: #8ab4f8;
+$dark-secondary: #81c995;
+$dark-secondary-container: rgba(129, 201, 149, 0.15);
+$dark-on-secondary: #202124;
+$dark-on-secondary-container: #81c995;
+$dark-surface: #202124;
+$dark-surface-variant: #303134;
+$dark-on-surface: #e8eaed;
+$dark-on-surface-variant: #9aa0a6;
+$dark-outline: #5f6368;
+$dark-error: #f28b82;
+$dark-background: #121212;
+
+// Common colors (shared across themes)
+$surface: #ffffff;
+$surface-variant: #f1f3f4;
+$on-surface: #202124;
+$on-surface-variant: #5f6368;
+$outline: #dadce0;
+$error: #d93025;

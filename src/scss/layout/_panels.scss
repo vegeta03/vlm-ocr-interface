@@ -1,0 +1,53 @@
+// Panels
+// Styles for the left and right panels
+
+// Panel adjustments for full-screen
+.left-panel, .right-panel {
+  height: 100%;
+  overflow-y: auto;
+  padding: $spacing-md;
+  @include flex-column;
+  
+  @include respond-to(md) {
+    width: 50%;
+  }
+}
+
+.left-panel {
+  .preview-section {
+    flex: 1;
+    @include flex-column;
+  }
+  
+  .preview-section, .file-upload-section {
+    height: auto;
+    margin-bottom: $spacing-md;
+  }
+  
+  // Adjust for bottom padding
+  .preview-section:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.right-panel {
+  @include flex-column;
+  
+  @include respond-to(md) {
+    margin-left: 1.5rem; // ml-6
+  }
+  
+  @include respond-below(md) {
+    margin-top: $spacing-md;
+  }
+}
+
+#ocrOutput {
+  flex: 1;
+  @include flex-column;
+  
+  textarea {
+    flex: 1;
+    min-height: 200px;
+  }
+}

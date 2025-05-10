@@ -1,0 +1,26 @@
+// Blue Theme
+// Default theme styles
+
+.theme-blue {
+  // Primary colors
+  --md-primary: #{$blue-primary};
+  --md-primary-container: #{$blue-primary-container};
+  --md-on-primary: #{$blue-on-primary};
+  --md-on-primary-container: #{$blue-on-primary-container};
+  
+  // Secondary colors
+  --md-secondary: #{$blue-secondary};
+  --md-secondary-container: #{$blue-secondary-container};
+  --md-on-secondary: #{$blue-on-secondary};
+  --md-on-secondary-container: #{$blue-on-secondary-container};
+  
+  // Surface colors
+  --md-surface: #{$surface};
+  --md-surface-variant: #{$surface-variant};
+  --md-on-surface: #{$on-surface};
+  --md-on-surface-variant: #{$on-surface-variant};
+  
+  // Other colors
+  --md-outline: #{$outline};
+  --md-error: #{$error};
+}

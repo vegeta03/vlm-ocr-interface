@@ -1,0 +1,40 @@
+// Main SCSS file that imports all partials
+// Following the 7-1 pattern: 7 folders, 1 main file
+
+// Abstracts
+@import 'abstracts/variables';
+@import 'abstracts/mixins';
+@import 'abstracts/functions';
+
+// Base
+@import 'base/reset';
+@import 'base/typography';
+@import 'base/base';
+
+// Themes
+@import 'themes/theme-variables';
+@import 'themes/theme-light';
+@import 'themes/theme-dark';
+@import 'themes/theme-custom';
+
+// Layout
+@import 'layout/header';
+@import 'layout/container';
+@import 'layout/panels';
+
+// Components
+@import 'components/buttons';
+@import 'components/chips';
+@import 'components/color-options';
+@import 'components/modals';
+@import 'components/image-preview';
+@import 'components/status-indicators';
+
+// Utilities
+@import 'utilities/spacing';
+@import 'utilities/typography-utils';
+@import 'utilities/colors';
+@import 'utilities/responsive';
+
+// Pages
+@import 'pages/home';

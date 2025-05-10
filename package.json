@@ -3,18 +3,18 @@
   "version": "1.0.0",
   "description": "A simple VLM OCR interface...",
   "scripts": {
-    "build:css": "npx tailwindcss@3 -i ./src/input.css -o ./dist/output.css",
-    "watch:css": "npx tailwindcss@3 -i ./src/input.css -o ./dist/output.css --watch",
+    "build:scss": "sass src/scss/main.scss:dist/output.css --style compressed",
+    "watch:scss": "sass src/scss/main.scss:dist/output.css --watch",
     "dev:vite": "vite",
     "build:vite": "vite build",
     "preview": "vite preview",
-    "build": "npm run build:css && npm run build:vite",
-    "dev": "npm-run-all --parallel watch:css dev:vite"
+    "build": "npm run build:scss && npm run build:vite",
+    "dev": "npm-run-all --parallel watch:scss dev:vite"
   },
   "keywords": [
     "OCR",
     "VLM",
-    "Tailwind CSS",
+    "SCSS",
     "TypeScript",
     "HTML"
   ],
@@ -22,6 +22,7 @@
   "license": "ISC",
   "devDependencies": {
     "npm-run-all": "^4.1.5",
+    "sass": "^1.87.0",
     "tailwindcss": "^4.1.6",
     "typescript": "^5.8.3",
     "vite": "^6.3.5"

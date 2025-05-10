@@ -1,0 +1,58 @@
+// Variables
+// This file contains all application-wide SCSS variables
+
+// Typography
+$font-family-base: 'Roboto', 'Segoe UI', system-ui, -apple-system, sans-serif;
+$font-family-code: 'Roboto Mono', monospace;
+
+// Typography sizes
+$font-size-title-large: 22px;
+$font-size-title-medium: 16px;
+$font-size-body-large: 16px;
+$font-size-body-medium: 14px;
+$font-size-body-small: 12px;
+
+// Font weights
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+
+// Line heights
+$line-height-tight: 1.2;
+$line-height-normal: 1.5;
+
+// Elevation (shadows)
+$elevation-1: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 1px 3px 1px rgba(60, 64, 67, 0.15);
+$elevation-2: 0 1px 2px 0 rgba(60, 64, 67, 0.3), 0 2px 6px 2px rgba(60, 64, 67, 0.15);
+$elevation-3: 0 4px 8px 3px rgba(60, 64, 67, 0.15), 0 1px 3px 0 rgba(60, 64, 67, 0.3);
+
+// Animation
+$transition-standard: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+
+// Spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+$spacing-xxl: 48px;
+
+// Border radius
+$border-radius-sm: 4px;
+$border-radius-md: 8px;
+$border-radius-lg: 12px;
+$border-radius-xl: 16px;
+$border-radius-pill: 1.5rem;
+$border-radius-circle: 50%;
+
+// Z-index
+$z-index-modal: 10;
+$z-index-dropdown: 5;
+$z-index-header: 3;
+$z-index-tooltip: 20;
+
+// Breakpoints
+$breakpoint-sm: 640px;
+$breakpoint-md: 768px;
+$breakpoint-lg: 1024px;
+$breakpoint-xl: 1280px;

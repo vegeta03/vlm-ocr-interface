@@ -1,0 +1,18 @@
+// Custom Theme
+// This theme is dynamically set via JavaScript
+
+.theme-custom {
+  // Default values that will be overridden by JS
+  --md-primary: #ff7043;
+  --md-on-primary: #ffffff;
+  --md-primary-container: rgba(255, 112, 67, 0.12);
+  --md-on-primary-container: #ff7043;
+  
+  // Other colors remain the same as default theme
+  --md-surface: #{$surface};
+  --md-surface-variant: #{$surface-variant};
+  --md-on-surface: #{$on-surface};
+  --md-on-surface-variant: #{$on-surface-variant};
+  --md-outline: #{$outline};
+  --md-error: #{$error};
+}

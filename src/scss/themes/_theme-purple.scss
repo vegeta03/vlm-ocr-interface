@@ -1,0 +1,25 @@
+// Purple Theme
+
+.theme-purple {
+  // Primary colors
+  --md-primary: #{$purple-primary};
+  --md-primary-container: #{$purple-primary-container};
+  --md-on-primary: #{$purple-on-primary};
+  --md-on-primary-container: #{$purple-on-primary-container};
+  
+  // Secondary colors
+  --md-secondary: #{$purple-secondary};
+  --md-secondary-container: #{$purple-secondary-container};
+  --md-on-secondary: #{$purple-on-secondary};
+  --md-on-secondary-container: #{$purple-on-secondary-container};
+  
+  // Surface colors
+  --md-surface: #{$surface};
+  --md-surface-variant: #{$surface-variant};
+  --md-on-surface: #{$on-surface};
+  --md-on-surface-variant: #{$on-surface-variant};
+  
+  // Other colors
+  --md-outline: #{$outline};
+  --md-error: #{$error};
+}

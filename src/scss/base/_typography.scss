@@ -1,0 +1,52 @@
+// Typography
+// Base typography styles
+
+body {
+  font-family: $font-family-base;
+  color: var(--md-on-surface);
+  line-height: $line-height-normal;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: $font-weight-medium;
+  line-height: $line-height-tight;
+  color: var(--md-on-surface);
+}
+
+h1 {
+  font-size: $font-size-title-large;
+}
+
+h2 {
+  font-size: $font-size-title-medium;
+}
+
+p {
+  margin-bottom: $spacing-md;
+}
+
+.text-title-large {
+  @include title-large;
+  color: var(--md-on-surface);
+}
+
+.text-title-medium {
+  @include title-medium;
+  color: var(--md-on-surface);
+}
+
+.text-body-large {
+  @include body-large;
+}
+
+.text-body-medium {
+  @include body-medium;
+}
+
+.text-body-small {
+  @include body-small;
+}
+
+.code-text {
+  font-family: $font-family-code;
+}

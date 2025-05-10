@@ -1,0 +1,43 @@
+// Container
+// Styles for the main container
+
+main {
+  padding: 0 !important;
+  height: calc(100% - 48px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  
+  @include respond-to(md) {
+    padding: $spacing-md;
+  }
+  
+  @include respond-below(md) {
+    padding: $spacing-sm;
+  }
+}
+
+// Full screen container
+.container {
+  max-width: none !important;
+  width: 100% !important;
+  height: calc(100% - 48px) !important; // Account for header
+  margin: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  padding: $spacing-md;
+  
+  @include respond-to(md) {
+    flex-direction: row;
+    max-width: 72rem !important; // max-w-6xl
+    border-radius: $border-radius-xl !important;
+  }
+  
+  @include respond-below(md) {
+    padding: $spacing-sm;
+  }
+}

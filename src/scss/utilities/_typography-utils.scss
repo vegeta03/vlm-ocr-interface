@@ -1,0 +1,53 @@
+// Typography Utilities
+// Utility classes for typography
+
+// Font weights
+.font-regular { font-weight: $font-weight-regular; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-bold { font-weight: $font-weight-bold; }
+
+// Text alignment
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text transforms
+.text-uppercase { text-transform: uppercase; }
+.text-lowercase { text-transform: lowercase; }
+.text-capitalize { text-transform: capitalize; }
+
+// Text decoration
+.text-underline { text-decoration: underline; }
+.text-line-through { text-decoration: line-through; }
+.text-no-decoration { text-decoration: none; }
+
+// Text overflow
+.truncate {
+  @include truncate;
+}
+
+// Font sizes
+.text-xs { font-size: 0.75rem; }
+.text-sm { font-size: 0.875rem; }
+.text-base { font-size: 1rem; }
+.text-lg { font-size: 1.125rem; }
+.text-xl { font-size: 1.25rem; }
+.text-2xl { font-size: 1.5rem; }
+.text-3xl { font-size: 1.875rem; }
+.text-4xl { font-size: 2.25rem; }
+
+// Line heights
+.leading-none { line-height: 1; }
+.leading-tight { line-height: $line-height-tight; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-loose { line-height: 2; }
+
+// Font families
+.font-sans { font-family: $font-family-base; }
+.font-mono { font-family: $font-family-code; }
+
+// Text opacity
+.text-opacity-75 { opacity: 0.75; }
+.text-opacity-50 { opacity: 0.5; }
+.text-opacity-25 { opacity: 0.25; }

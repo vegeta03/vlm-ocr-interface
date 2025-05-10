@@ -1,0 +1,35 @@
+// Header
+// Styles for the application header
+
+.theme-header {
+  background-color: var(--md-surface);
+  color: var(--md-on-surface);
+  border-bottom: 1px solid var(--md-outline);
+
+  h1 {
+    font-size: 1.25rem; // text-xl
+    font-weight: $font-weight-medium;
+  }
+
+  .theme-selector {
+    @include flex-center;
+    gap: $spacing-sm;
+
+    span {
+      font-size: $font-size-body-small;
+    }
+
+    .color-options {
+      display: flex;
+      gap: $spacing-md;
+    }
+  }
+
+  @include respond-to(md) {
+    padding: $spacing-md;
+  }
+
+  @include respond-below(md) {
+    padding: $spacing-sm;
+  }
+}

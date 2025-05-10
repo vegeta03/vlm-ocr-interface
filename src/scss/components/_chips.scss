@@ -1,0 +1,27 @@
+// Chips
+// Styles for chips and selectable chips
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: $border-radius-pill;
+  font-size: $font-size-body-small;
+  background-color: rgba(0, 0, 0, 0.08);
+  color: var(--md-on-surface-variant);
+  font-weight: $font-weight-medium;
+  @include transition(background-color, color);
+}
+
+.chip-selectable {
+  cursor: pointer;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.12);
+  }
+
+  &.active {
+    background-color: var(--md-primary-container);
+    color: var(--md-on-primary-container);
+  }
+}

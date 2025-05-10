@@ -1,0 +1,53 @@
+// Dark Theme
+
+.theme-dark {
+  // Primary colors
+  --md-primary: #{$dark-primary};
+  --md-primary-container: #{$dark-primary-container};
+  --md-on-primary: #{$dark-on-primary};
+  --md-on-primary-container: #{$dark-on-primary-container};
+  
+  // Secondary colors
+  --md-secondary: #{$dark-secondary};
+  --md-secondary-container: #{$dark-secondary-container};
+  --md-on-secondary: #{$dark-on-secondary};
+  --md-on-secondary-container: #{$dark-on-secondary-container};
+  
+  // Surface colors
+  --md-surface: #{$dark-surface};
+  --md-surface-variant: #{$dark-surface-variant};
+  --md-on-surface: #{$dark-on-surface};
+  --md-on-surface-variant: #{$dark-on-surface-variant};
+  
+  // Other colors
+  --md-outline: #{$dark-outline};
+  --md-error: #{$dark-error};
+  
+  // Background color
+  background-color: #{$dark-background};
+  
+  // Additional dark mode overrides
+  main {
+    background-color: #{$dark-background};
+  }
+  
+  .theme-header {
+    background-color: #{$dark-surface};
+    border-bottom-color: #{$dark-outline};
+  }
+  
+  .chip-selectable.active {
+    background-color: rgba(138, 180, 248, 0.25);
+    color: #{$dark-primary};
+  }
+  
+  .page-controls {
+    background-color: rgba(32, 33, 36, 0.9);
+    backdrop-filter: blur(8px);
+  }
+  
+  #colorPickerModal .bg-surface {
+    background-color: #{$dark-surface};
+    color: #{$dark-on-surface};
+  }
+}
