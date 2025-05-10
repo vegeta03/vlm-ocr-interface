@@ -84,6 +84,78 @@
   --md-on-surface-variant: #9aa0a6;
   --md-outline: #5f6368;
   --md-error: #f28b82;
+  
+  /* Override background colors for main elements */
+  background-color: #121212;
+}
+
+/* Additional dark mode overrides */
+.theme-dark main {
+  background-color: #121212;
+}
+
+.theme-dark .theme-header {
+  background-color: #202124;
+  border-bottom-color: #5f6368;
+}
+
+.theme-dark #fileDetails {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-dark .empty-state {
+  color: #9aa0a6;
+}
+
+.theme-dark #imagePreview {
+  background-color: rgba(255, 255, 255, 0.03);
+}
+
+.theme-dark #imagePreview .empty-state {
+  background-color: transparent;
+}
+
+.theme-dark textarea,
+.theme-dark input {
+  background-color: #303134;
+  color: #e8eaed;
+}
+
+.theme-dark .state-empty {
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.theme-dark .bg-surface {
+  background-color: #202124;
+}
+
+.theme-dark .bg-surface-variant {
+  background-color: #303134;
+}
+
+.theme-dark .chip {
+  background-color: rgba(255, 255, 255, 0.07);
+  color: #e8eaed;
+}
+
+.theme-dark .chip-selectable:hover {
+  background-color: rgba(138, 180, 248, 0.15);
+}
+
+.theme-dark .chip-selectable.active {
+  background-color: rgba(138, 180, 248, 0.25);
+  color: #8ab4f8;
+}
+
+.theme-dark .page-controls {
+  background-color: rgba(32, 33, 36, 0.9);
+  backdrop-filter: blur(8px);
+}
+
+/* Fix modal in dark mode */
+.theme-dark #colorPickerModal .bg-surface {
+  background-color: #202124;
+  color: #e8eaed;
 }
 
 /* Custom theme - will be set via JavaScript */
@@ -105,6 +177,12 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+}
+
+/* Fix background colors for base elements to support dark mode */
+main {
+  background-color: inherit;
+  color: inherit;
 }
 
 /* Full screen container */
@@ -355,6 +433,8 @@ main {
   background-color: color-mix(in srgb, var(--md-on-surface-variant) 12%, transparent);
   color: var(--md-on-surface-variant);
   font-weight: 500;
+  transition: background-color var(--md-transition-standard),
+              color var(--md-transition-standard);
 }
 
 .chip-selectable {
@@ -388,6 +468,8 @@ main {
   transition: transform var(--md-transition-standard), 
               border-color var(--md-transition-standard),
               box-shadow var(--md-transition-standard);
+  position: relative;
+  z-index: 1;
 }
 
 .color-option:hover {
