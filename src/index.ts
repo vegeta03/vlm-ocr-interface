@@ -79,11 +79,14 @@ document.addEventListener("DOMContentLoaded", () => {
   formatOptions.forEach(option => {
     option.addEventListener("click", () => {
       const format = option.getAttribute("data-format") as FormatType;
-      setActiveFormat(format);
-      state.format = format;
-      // If we already have processed results, update the format
-      if (state.status === 'complete') {
-        updateOutputFormat(format);
+      // Only update if the clicked option is not already active
+      if (!option.classList.contains("active")) {
+        setActiveFormat(format);
+        state.format = format;
+        // If we already have processed results, update the format
+        if (state.status === 'complete') {
+          updateOutputFormat(format);
+        }
       }
     });
   });

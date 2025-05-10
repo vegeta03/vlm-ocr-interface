@@ -27,7 +27,7 @@
           </button>
           <button class="color-option" data-theme="custom" title="Custom theme" style="background: linear-gradient(135deg, #ff7043, #2979ff);">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
+              <path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-.99 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" fill="currentColor"/>
             </svg>
           </button>
         </div>
@@ -110,13 +110,14 @@
         </div>
 
         <div class="right-panel bg-surface-variant elevation-2">
-          <h2 class="text-title-large mb-2">Raw or Preview of VLM OCR extracted</h2>
           <div class="format-options">
             <button class="chip chip-selectable active" data-format="markdown">Markdown</button>
             <button class="chip chip-selectable" data-format="json">JSON</button>
             <button class="chip chip-selectable" data-format="yaml">YAML</button>
           </div>
           <p class="text-body-medium text-on-surface-variant mb-4">Select extract format above</p>
+          <button id="processButton" class="btn-primary" disabled>Process File</button>
+          <h2 class="text-title-large mb-2">Raw or Preview of VLM OCR extracted</h2>
           <div id="ocrOutput">
             <div class="flex">
               <div class="status-indicator">
@@ -132,7 +133,6 @@
             <textarea class="code-text" placeholder="OCR output will appear here" readonly></textarea>
           </div>
           <div class="action-buttons">
-            <button id="processButton" class="btn-secondary" disabled>Process Image</button>
             <button id="downloadButton" class="btn-primary" disabled>
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M19 9H15V3H9V9H5L12 16L19 9ZM5 18V20H19V18H5Z" fill="currentColor"/>
