@@ -6,8 +6,8 @@
 // Panel adjustments for full-screen
 .left-panel, .right-panel {
   height: 100%;
-  overflow-y: auto;
-  padding: vars.$spacing-lg;
+  // overflow-y: auto;
+  padding: 0px 24px 1px 24px;
   @include mix.flex-column;
 
   @include mix.respond-to(md) {

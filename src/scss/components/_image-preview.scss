@@ -5,7 +5,7 @@
 
 #imagePreview {
   flex: 1; // Take remaining space
-  min-height: 450px; // Minimum height
+  min-height: 100%; // Minimum height
   @include mix.transition(all);
   @include mix.flex-center;
   position: relative;
